@@ -1,4 +1,4 @@
-package character
+package ProjetRED
 
 type character struct {
 	Nom       string
@@ -15,7 +15,7 @@ type character struct {
 	Helmet    string
 	Armor     string
 	Boots     string
-	Inventory []string
+	Inventory Inventory
 }
 
 type Classe struct {
@@ -27,7 +27,7 @@ type Classe struct {
 	Spd      int
 }
 
-func InitCharacter(nom string, classe Classe) character {
+func CharacterCreation(nom string, classe Classe) character {
 	return character{
 		Nom:      nom,
 		Classe:   classe,
@@ -40,4 +40,8 @@ func InitCharacter(nom string, classe Classe) character {
 		Reiki:    classe.Reiki,
 		Spd:      classe.Spd,
 	}
+}
+
+type Inventory struct {
+	Consumables map[string]int // nom → quantité
 }
