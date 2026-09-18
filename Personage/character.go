@@ -16,6 +16,7 @@ type character struct {
 	Armor     string
 	Boots     string
 	Inventory Inventory
+	Effects   []StatusEffect
 }
 
 type Classe struct {
