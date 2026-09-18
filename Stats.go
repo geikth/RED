@@ -1,4 +1,4 @@
-package RED
+package ProjetRED
 
 func (p *character) RecalculateStats() {
 	p.PVMax += p.Equip.Weapon.BonusPV + p.Equip.Armor.BonusPV

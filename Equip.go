@@ -1,4 +1,4 @@
-package main
+package ProjetRED
 
 func (p *character) EquipItem(slot string, item Item) {
 	switch slot {

@@ -1,18 +1,13 @@
 package ProjetRED
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func (p *character) AddConsumable(item Consumable) {
-	current := p.Inventory.Consumables[item.Name]
-
-	if current < item.MaxStack {
-		p.Inventory.Consumables[item.Name] = current + 1
-		fmt.Println(item.Name, "ajoutée ! Quantité :", current+1)
-	} else {
-		fmt.Println("Impossible : stack maximum atteint pour", item.Name)
-	}
+type StatusEffect struct {
+	Name     string
+	Damage   int
+	Duration int // en secondes
+	Interval int // dégâts toutes les X secondes
+	TimeLeft int
 }
 
 func (p *character) UseConsumable(item Consumable) {
@@ -51,6 +46,8 @@ func (p *character) UseConsumable(item Consumable) {
 		if p.PV < 0 {
 			p.PV = 0
 		}
-		p.Inventory.Consumables[item.Name] = qty - 1
 	}
+
+	// Détruire une potion
+	p.Inventory.Consumables[item.Name] = qty - 1
 }
