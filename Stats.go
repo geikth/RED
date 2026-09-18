@@ -1,9 +1,10 @@
 package main
 
 func (p *character) RecalculateStats() {
-	p.PVMax = 100 + p.Equip.Weapon.BonusPV + p.Equip.Armor.BonusPV
-	p.Strength = 10 + p.Equip.Weapon.BonusAtk + p.Equip.Armor.BonusAtk
-	p.Defense = 5 + p.Equip.Armor.BonusDef + p.Equip.Weapon.BonusDef
+	p.PVMax += p.Equip.Weapon.BonusPV + p.Equip.Armor.BonusPV
+	p.Strength += p.Equip.Weapon.BonusAtk + p.Equip.Armor.BonusAtk
+	p.Defense += p.Equip.Armor.BonusDef + p.Equip.Weapon.BonusDef
+	p.Reiki += p.Equip.Armor.BonusReiki + p.Equip.Weapon.BonusReiki
 
 	if p.PV > p.PVMax {
 		p.PV = p.PVMax
