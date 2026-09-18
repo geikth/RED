@@ -29,7 +29,7 @@ type Classe struct {
 
 func CharacterCreation(nom string, classe Classe) character {
 	return character{
-		Nom:      nom,
+		Nom:      Capitalize(nom),
 		Classe:   classe,
 		LVL:      1,
 		XP:       0,
@@ -43,5 +43,6 @@ func CharacterCreation(nom string, classe Classe) character {
 }
 
 type Inventory struct {
-	Consumables map[string]int // nom → quantité
+	Items       map[string]int
+	Consumables map[string]int
 }
