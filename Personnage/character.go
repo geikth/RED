@@ -48,12 +48,17 @@ func CharacterCreation(nom string, classe Classe) Character {
 		Defense:   classe.Defense,
 		Reiki:     classe.Reiki,
 		Spd:       classe.Spd,
-		Inventory: Inventory{Items: make(map[string]int), Consumables: make(map[string]int)},
-		Effects:   []StatusEffect{},
+		Inventory: Inventory{
+			Items:       make(map[string]int),
+			Consumables: make(map[string]int),
+			Materials:   make(map[string]int),
+		},
+		Effects: []StatusEffect{},
 	}
 }
 
 type Inventory struct {
-	Items       map[string]int
-	Consumables map[string]int
+    Items       map[string]int
+    Consumables map[string]int
+    Materials   map[string]int
 }
