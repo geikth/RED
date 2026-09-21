@@ -6,7 +6,7 @@ import (
 )
 func ville2() {
 		var saisie string
-	transportdansvilleun := []func(){grotte, jack2, marchand}
+	transportdansvilledeux := []func(){grotte, jack2, marchand}
 	fmt.Scanln(&saisie)
 	fmt.Println("vous êtes dans la ville 2")
 	fmt.Println("vous avez débloquer l'interaction avec le marchand")
@@ -19,7 +19,7 @@ func ville2() {
 			menu()
 			return
 		}
-	choixdansvilleun, err := strconv.Atoi(saisie)
+	choixdansvilledeux, err := strconv.Atoi(saisie)
 	if err != nil || choixdansvilledeux != j || choixdansvilledeux != f || choixdansvilledeux != a {
 		fmt.Println("erreur, veuillez entrer une lettre g, j, a ou m ")
 		continue

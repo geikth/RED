@@ -3,14 +3,15 @@ package ProjetRED
 import (
 	"fmt"
 	"strconv"
+	"os"
 )
 
 func jack1(){
 	var saisie string
 	fmt.Println("bonjours apprenti voyageur!")
-	wait(0.5)
+	wait(500)
 	fmt.Print("je suis jack ton fidèle amis donneur de quête...")
-	wait(0.5)
+	wait(500)
 	fmt.Println("chiante il faut se l'avouer")
 	fmt.Println("mais que serai se monde sans ?")
 	fmt.Println("c'est alors pour cela que j'ai besoin de ton aide!")
@@ -28,5 +29,20 @@ func jack1(){
 		fmt.Println("erreur, veuillez entrer une lettre o, n ou m pour le menu")
 		continue
 	}
-	if 
+	if saisie == o {
+		fmt.Println("merci tu vas sauver la ville et tout ses habitants")
+		fmt.Println("je te donnerais t'as récompense une fois le troll battu")
+		ville1()
+		return
+	}
+	if saisie == n{
+		fmt.Println("ho non, trop tard, le troll arrive, il saccage la ville!")
+		fmt.Println("c'est de t'as faute !")
+		wait(500)
+		fmt.Println("GAME OVER! ")
+		wait(500)
+		fmt.Println("retry?")
+		wait(2000)
+		os.Exit(0)
+	}
 }
