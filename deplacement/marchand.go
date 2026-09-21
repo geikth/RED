@@ -2,13 +2,13 @@ package ProjetRED
 
 import (
 	"fmt"
-	"strconv"
 	"math/rand"
 )
+
 func marchand() {
 	type Item struct {
-	Nom  string
-	Prix int
+		Nom  string
+		Prix int
 	}
 	items := []Item{
 		{"Swordshield", 20},
@@ -51,7 +51,7 @@ func marchand() {
 	}
 	fmt.Println("Total :", total, "pièces")
 
-		var saisie string
+	var saisie string
 	propositionmarchand := []func(){}
 	fmt.Scanln(&saisie)
 }

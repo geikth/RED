@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 func ville2() {
-		var saisie string
+	var saisie string
 	transportdansvilleun := []func(){grotte, jack2, marchand}
 	fmt.Scanln(&saisie)
 	fmt.Println("vous êtes dans la ville 2")
