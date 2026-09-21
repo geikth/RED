@@ -20,9 +20,9 @@ func ville1() {
 		}
 	choixdansvilleun, err := strconv.Atoi(saisie)
 	if err != nil || choixdansvilleun != j || choixdansvilleun != f {
-		fmt.Println("erreur, veuillez entrer une lettre f, j ou m pour le menu")
+		fmt.Println("erreur, veuillez entrer une lettre f,  ou m pour le menu")
 		continue
 	}
 	transportdansvilleun[choixdansvilleun-1]()
 	return
-	
+}
