@@ -2,12 +2,13 @@ package main
 
 import (
 	Equipement "ProjetRED/Equipement"
+	Menu "ProjetRED/Menu"
 	Personnage "ProjetRED/Personnage"
 )
 
 func main() {
-	jean := Personnage.CharacterCreation("jean", Personnage.Classes["Ronin"])
-	Personnage.DisplayInfo(jean)
+	jean := Personnage.CharacterCreation("jean", Personnage.Classes["mage spirituel"])
 	Equipement.AddItem(jean, Equipement.Items["Swordshield"])
-	Personnage.AccessInventory(jean)
+	Menu.DisplayInfo(jean)
+	Menu.AccessInventory(jean)
 }
