@@ -4,12 +4,11 @@ import (
 	"fmt"
 	"strconv"
 )
-
-func ville1() {
-	var saisie string
-	transportdansvilleun := []func(){foret, jack1}
+func ville2() {
+		var saisie string
+	transportdansvilleun := []func(){grotte, jack2}
 	fmt.Scanln(&saisie)
-	fmt.Println("vous êtes dans la ville 1")
+	fmt.Println("vous êtes dans la ville 2")
 	fmt.Println("appui sur m pour le menu")
 	fmt.Println("appui sur j pour aller parler a jack (conseiller avant la forêt)")
 	fmt.Println("appui sur f pour aller dans la forêt")
@@ -19,10 +18,11 @@ func ville1() {
 			return
 		}
 	choixdansvilleun, err := strconv.Atoi(saisie)
-	if err != nil || choixdansvilleun != j || choixdansvilleun != f {
+	if err != nil || choixdansvilledeux != j || choixdansvilledeux != f {
 		fmt.Println("erreur, veuillez entrer une lettre f, j ou m pour le menu")
 		continue
 	}
-	transportdansvilleun[choixdansvilleun-1]()
+	transportdansvilledeux[choixdansvilledeux-1]()
 	return
 	
+}
