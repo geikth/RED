@@ -45,7 +45,7 @@ var ForgeRecipes = map[string]Recipe{
 			"Crystal": 15,
 		},
 	},
-	"Maximiliann Helmet": {
+	"Maximilian Helmet": {
 		Result: Items["Maximilian Helmet"],
 		Cost: map[string]int{
 			"Diamant": 5,
