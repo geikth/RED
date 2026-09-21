@@ -17,3 +17,15 @@ func ApplyPoisonDOT(p *personnage.Character) {
 	p.Effects = append(p.Effects, effect)
 	fmt.Println(p.Nom, "est empoisonné !")
 }
+func ApplyBreadRegen(p *personnage.Character) {
+	effect := personnage.StatusEffect{
+		Name:     "Regen du Pain",
+		Damage:   -5, // -5 = soin de 5 PV
+		Duration: 5,
+		Interval: 1,
+		TimeLeft: 5,
+	}
+
+	p.Effects = append(p.Effects, effect)
+	fmt.Println(p.Nom, "mange du pain et commence à se régénérer !")
+}
