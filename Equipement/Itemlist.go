@@ -82,3 +82,11 @@ var Pain = Consumable{
 	Heal:     15,
 	MaxStack: 10,
 }
+
+var Materials = map[string]Material{
+	"Fer":     {Name: "Fer", MaxStack: 50},
+	"Bois":    {Name: "Bois", MaxStack: 50},
+	"Cuir":    {Name: "Cuir", MaxStack: 50},
+	"Cristal": {Name: "Cristal", MaxStack: 50},
+	"Diamant": {Name: "Diamant", MaxStack: 50},
+}
