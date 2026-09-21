@@ -1,5 +1,11 @@
 package ProjetRED
 
+import (
+	"fmt"
+
+	personnage "ProjetRED/Personnage"
+)
+
 type ItemType string
 
 const (
@@ -24,6 +30,21 @@ type Consumable struct {
 	Name     string
 	Heal     int
 	MaxStack int
+}
+
+func AddItem(p personnage.Character, item Item) {
+	if p.Inventory.Items == nil {
+		p.Inventory.Items = make(map[string]int)
+	}
+
+	current := p.Inventory.Items[item.Name]
+	if current < item.MaxStack {
+		p.Inventory.Items[item.Name] = current + 1
+		fmt.Println(item.Name, "ajouté ! Quantité :", current+1)
+		return
+	}
+
+	fmt.Println("Impossible : stack maximum atteint pour", item.Name)
 }
 
 var Items = map[string]Item{
