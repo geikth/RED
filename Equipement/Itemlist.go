@@ -19,6 +19,10 @@ type Item struct {
 	MaxStack   int
 	Type       ItemType
 }
+type Material struct {
+	Name     string
+	MaxStack int
+}
 
 type Consumable struct {
 	Name     string
@@ -84,9 +88,9 @@ var Pain = Consumable{
 }
 
 var Materials = map[string]Material{
-	"Fer":     {Name: "Fer", MaxStack: 50},
-	"Bois":    {Name: "Bois", MaxStack: 50},
-	"Cuir":    {Name: "Cuir", MaxStack: 50},
-	"Cristal": {Name: "Cristal", MaxStack: 50},
-	"Diamant": {Name: "Diamant", MaxStack: 50},
+	"Fer":     {Name: "Fer", MaxStack: 64},
+	"Bois":    {Name: "Bois", MaxStack: 64},
+	"Cuir":    {Name: "Cuir", MaxStack: 64},
+	"Cristal": {Name: "Cristal", MaxStack: 64},
+	"Diamant": {Name: "Diamant", MaxStack: 64},
 }
