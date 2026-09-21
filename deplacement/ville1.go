@@ -13,11 +13,11 @@ func ville1() {
 	fmt.Println("appui sur m pour le menu")
 	fmt.Println("appui sur j pour aller parler a jack (conseiller avant la forêt)")
 	fmt.Println("appui sur f pour aller dans la forêt")
-	
+
 	if saisie == "m" {
-			menu()
-			return
-		}
+		menu()
+		return
+	}
 	choixdansvilleun, err := strconv.Atoi(saisie)
 	if err != nil || choixdansvilleun != j || choixdansvilleun != f {
 		fmt.Println("erreur, veuillez entrer une lettre f,  ou m pour le menu")

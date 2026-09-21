@@ -21,9 +21,9 @@ func jack1(){
 	fmt.Pintln("alors si tu accepte ma quête appui sur o, sinon n")
 	fmt.Scanln(&saisie)
 	if saisie == "m" {
-			menu()
-			return
-		}
+		menu()
+		return
+	}
 	choixjoueurj1, err := strconv.Atoi(saisie)
 	if err != nil || choixjoueurj1 != o || choixjoueurj1 != n {
 		fmt.Println("erreur, veuillez entrer une lettre o, n ou m pour le menu")
