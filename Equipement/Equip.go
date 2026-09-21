@@ -1,16 +1,18 @@
 package ProjetRED
 
-func (p *character) EquipItem(slot string, item Item) {
+import personnage "ProjetRED/Personnage"
+
+func EquipItem(p *personnage.Character, slot string, item Item) {
 	switch slot {
 	case "weapon":
-		p.Equip.Weapon = item
+		p.Weapon = item.Name
 	case "armor":
-		p.Equip.Armor.Chestplate = item
+		p.Armor = item.Name
 	case "boots":
-		p.Equip.Armor.Boots = item
+		p.Boots = item.Name
 	case "helmet":
-		p.Equip.Armor.Helmet = item
+		p.Helmet = item.Name
 	}
 
-	p.RecalculateStats()
+	RecalculateStats(p)
 }

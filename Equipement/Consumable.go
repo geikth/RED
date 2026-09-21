@@ -1,37 +1,43 @@
 package ProjetRED
 
 import (
+	personnage "ProjetRED/Personnage"
 	"fmt"
 )
 
-func (p *character) AddConsumable(item Consumable) {
-	current := p.Inventory.Consumables[item.Name]
+func AddConsumable(p *personnage.Character, item Consumable) {
+	if p.Inventory.Consumables == nil {
+		p.Inventory.Consumables = make(map[string]int)
+	}
 
+	current := p.Inventory.Consumables[item.Name]
 	if current < item.MaxStack {
 		p.Inventory.Consumables[item.Name] = current + 1
 		fmt.Println(item.Name, "ajoutée ! Quantité :", current+1)
-	} else {
-		fmt.Println("Impossible : stack maximum atteint pour", item.Name)
+		return
 	}
+
+	fmt.Println("Impossible : stack maximum atteint pour", item.Name)
 }
 
-func (p *character) UseConsumable(item Consumable) {
-	qty := p.Inventory.Consumables[item.Name]
+func UseConsumable(p *personnage.Character, item Consumable) {
+	if p.Inventory.Consumables == nil {
+		p.Inventory.Consumables = make(map[string]int)
+	}
 
+	qty := p.Inventory.Consumables[item.Name]
 	if qty <= 0 {
 		fmt.Println("Tu n'as pas de", item.Name)
 		return
 	}
 
-	// Potion de soin → ne pas utiliser si PV max
 	if item.Heal > 0 && p.PV == p.PVMax {
 		fmt.Println("Impossible d'utiliser", item.Name, ": PV déjà au maximum.")
 		return
 	}
 
-	// Potion de poison DOT
 	if item.Name == "Poison DOT Potion" {
-		effect := StatusEffect{
+		effect := personnage.StatusEffect{
 			Name:     "Poison",
 			Damage:   10,
 			Duration: 3,
@@ -39,10 +45,9 @@ func (p *character) UseConsumable(item Consumable) {
 			TimeLeft: 3,
 		}
 		p.Effects = append(p.Effects, effect)
-		fmt.Println(p.Name, "est empoisonné !")
+		fmt.Println(p.Nom, "est empoisonné !")
 	}
 
-	// Potion de heal instantané
 	if item.Heal != 0 {
 		p.PV += item.Heal
 		if p.PV > p.PVMax {
