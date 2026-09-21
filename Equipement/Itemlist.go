@@ -55,6 +55,6 @@ var HealingPotion = Consumable{
 }
 var PoisonDOTPotion = Consumable{
 	Name:     "Poison DOT Potion",
-	Heal:     0, // pas de heal instantané
+	Heal:     0,
 	MaxStack: 3,
 }
