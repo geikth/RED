@@ -25,6 +25,10 @@ type Item struct {
 	MaxStack   int
 	Type       ItemType
 }
+type Material struct {
+	Name     string
+	MaxStack int
+}
 
 type Consumable struct {
 	Name     string
@@ -82,10 +86,10 @@ var Items = map[string]Item{
 	"Odachi":         {Name: "Odachi", BonusAtk: 25, BonusSpeed: 5, MaxStack: 1, Type: "Weapon"},
 	"Demonium Staff": {Name: "Demonium Staff", BonusAtk: 30, BonusReiki: 25, BonusPV: 5, MaxStack: 1, Type: "Weapon"},
 	// Craft (le stuff op)
-	"Maximiliann Helmet": {Name: "Maximiliann Helmet", BonusPV: 25, BonusSpeed: 5, BonusDef: 40, MaxStack: 1, Type: "Helmet"},
-	"Maximilian Armor":   {Name: "Maximilian Armor", BonusPV: 50, BonusAtk: 25, BonusDef: 60, MaxStack: 1, Type: "Armor"},
-	"Maximilian Boots":   {Name: "Maximilian Boots", BonusPV: 30, BonusSpeed: 25, BonusDef: 40, MaxStack: 1, Type: "Boots"},
-	"La Maxime":          {Name: "La Maxime", BonusAtk: 50, BonusSpeed: 20, BonusPV: 50, MaxStack: 1, Type: "Weapon"},
+	"Maximilian Helmet": {Name: "Maximilian Helmet", BonusPV: 25, BonusSpeed: 5, BonusDef: 40, MaxStack: 1, Type: "Helmet"},
+	"Maximilian Armor":  {Name: "Maximilian Armor", BonusPV: 50, BonusAtk: 25, BonusDef: 60, MaxStack: 1, Type: "Armor"},
+	"Maximilian Boots":  {Name: "Maximilian Boots", BonusPV: 30, BonusSpeed: 25, BonusDef: 40, MaxStack: 1, Type: "Boots"},
+	"La Maxime":         {Name: "La Maxime", BonusAtk: 50, BonusSpeed: 20, BonusPV: 50, MaxStack: 1, Type: "Weapon"},
 }
 
 var HealingPotion = Consumable{
@@ -102,4 +106,12 @@ var Pain = Consumable{
 	Name:     "Pain",
 	Heal:     15,
 	MaxStack: 10,
+}
+
+var Materials = map[string]Material{
+	"Fer":     {Name: "Fer", MaxStack: 64},
+	"Bois":    {Name: "Bois", MaxStack: 64},
+	"Cuir":    {Name: "Cuir", MaxStack: 64},
+	"Cristal": {Name: "Cristal", MaxStack: 64},
+	"Diamant": {Name: "Diamant", MaxStack: 64},
 }
