@@ -20,7 +20,7 @@ func jack2() {
 	fmt.Println("si tu n'accepte pas il y aura des concéquances désastreuse sur cette ville!")
 	fmt.Println("alors si tu accepte ma quête appui sur o, sinon n, ou bien m pour le menu")
 	for {
-		saisie = "" // évite de réutiliser l'ancienne valeur si l'utilisateur appuie juste sur Entrée
+		saisie = ""
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
@@ -43,8 +43,9 @@ func jack2() {
 			time.Sleep(2 * time.Second)
 			os.Exit(0)
 		}
+		if saisie != o && saisie != n && saisie != m {
+			fmt.Println("ça n'a pas marcher il faut inscrire o, n ou m pour le menu")
+			fmt.Println("veuillez saisir un choix valide")
+		}
 	}
-
-	fmt.Println("erreur, veuillez entrer une lettre o, n ou m pour le menu")
-	fmt.Println("veuillez saisir un choix valide")
 }
