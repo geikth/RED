@@ -1,10 +1,8 @@
 package ProjetRED
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func foret() {
-	fmt.Println("malheureux, tu as osé pénétrer dans la forêt du troll !")
-	fmt.Println("tu vas devoir le combattre!!")
+	fmt.Println("Vous entrez dans la forêt.")
+	fmt.Println("Le vent souffle et les arbres bruissent.")
 }

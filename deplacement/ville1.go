@@ -1,38 +1,28 @@
 package ProjetRED
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func ville1() {
-	const j = "j"
-	const f = "f"
-
-	transportdansvilleun := map[string]func(){
-		j: jack1,
-		f: foret,
-	}
-
-	var saisie string
-
 	for {
+		var saisie string
 		fmt.Println("vous êtes dans la ville 1")
 		fmt.Println("appui sur m pour le menu")
-		fmt.Println("appui sur j pour aller parler a jack (conseiller avant la forêt)")
+		fmt.Println("appui sur j pour aller parler a jack")
 		fmt.Println("appui sur f pour aller dans la forêt")
-
 		fmt.Scanln(&saisie)
 
-		if saisie == "m" {
+		switch saisie {
+		case "m", "M":
 			menu()
 			return
+		case "j", "J":
+			jack1()
+			return
+		case "f", "F":
+			foret()
+			return
+		default:
+			fmt.Println("erreur, veuillez entrer f, j ou m pour le menu")
 		}
-		if saisie == j || saisie == f {
-			break
-		}
-
-		fmt.Println("erreur, veuillez entrer une lettre f, j ou m pour le menu")
 	}
-
-	transportdansvilleun[saisie]()
 }
