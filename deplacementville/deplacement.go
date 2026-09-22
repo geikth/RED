@@ -10,7 +10,7 @@ var vv2 = false
 var vv3 = false
 var vv4 = false
 
-func deplacement() {
+func Deplacement() {
 	villesValides := []bool{vv1, vv2, vv3, vv4}
 	villetransport := []func(){ville1, ville2, ville3, ville4}
 

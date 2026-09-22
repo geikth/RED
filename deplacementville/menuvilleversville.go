@@ -20,7 +20,7 @@ func menuvilleversville() {
 			return
 		}
 		if saisie == o {
-			deplacement()
+			Deplacement()
 			return
 		}
 		if saisie == n {

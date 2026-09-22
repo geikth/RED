@@ -27,31 +27,28 @@ func jack1() {
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
-			menu()
+			menuvilleversville()
+			return
+
+			fmt.Println("erreur, veuillez entrer une lettre o, n ou m pour le menu")
+			fmt.Println("veuillez saisir un choix valide")
+		}
+
+		if saisie == o {
+			fmt.Println("merci tu vas sauver la ville et tout ses habitants")
+			fmt.Println("je te donnerais t'as récompense une fois le troll battu")
+			ville1()
 			return
 		}
-		if saisie == o || saisie == n {
-			break // on sort de la boucle, les if ci-dessous prennent le relais
+		if saisie == n {
+			fmt.Println("ho non, trop tard, le troll arrive, il saccage la ville!")
+			fmt.Println("c'est de t'as faute !")
+			time.Sleep(500 * time.Millisecond)
+			fmt.Println("GAME OVER! ")
+			time.Sleep(500 * time.Millisecond)
+			fmt.Println("retry?")
+			time.Sleep(2 * time.Second)
+			os.Exit(0)
 		}
-
-		fmt.Println("erreur, veuillez entrer une lettre o, n ou m pour le menu")
-		fmt.Println("veuillez saisir un choix valide")
-	}
-
-	if saisie == o {
-		fmt.Println("merci tu vas sauver la ville et tout ses habitants")
-		fmt.Println("je te donnerais t'as récompense une fois le troll battu")
-		ville1()
-		return
-	}
-	if saisie == n {
-		fmt.Println("ho non, trop tard, le troll arrive, il saccage la ville!")
-		fmt.Println("c'est de t'as faute !")
-		time.Sleep(500 * time.Millisecond)
-		fmt.Println("GAME OVER! ")
-		time.Sleep(500 * time.Millisecond)
-		fmt.Println("retry?")
-		time.Sleep(2 * time.Second)
-		os.Exit(0)
 	}
 }

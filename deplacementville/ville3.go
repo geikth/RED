@@ -1,12 +1,16 @@
 package ProjetRED
 
+import (
+	"fmt"
+)
+
 func ville3() {
-	const o = "o"
-	const f = "f"
+	const d = "d"
+	const j = "j"
 
 	transportdansvilletrois := map[string]func(){
 		j: jack3,
-		: ,
+		d: desert,
 	}
 
 	var saisie string
@@ -15,22 +19,20 @@ func ville3() {
 		fmt.Println("vous êtes dans la ville 3")
 		fmt.Println("appui sur m pour le menu")
 		fmt.Println("appui sur j pour aller parler a jack (conseiller avant le desert)")
-		fmt.Println("appui sur f pour aller dans la forêt")
+		fmt.Println("appui sur d pour aller dans le desert")
 
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
-			menu()
+			menuvilleversville()
 			return
 		}
-		if saisie == j || saisie == f {
+		if saisie == j || saisie == d {
 			break
 		}
 
-		fmt.Println("erreur, veuillez entrer une lettre f, j ou m pour le menu")
+		fmt.Println("erreur, veuillez entrer une lettre d, j ou m pour le menu")
 	}
 
 	transportdansvilletrois[saisie]()
-}
-
 }

@@ -28,7 +28,7 @@ func ville2() {
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
-			menu()
+			menuvilleversville()
 			return
 		}
 		if saisie == j || saisie == g || saisie == a {
