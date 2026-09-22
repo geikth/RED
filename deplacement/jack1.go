@@ -2,11 +2,11 @@ package ProjetRED
 
 import (
 	"fmt"
-	"os"
 	"strconv"
+	"os"
 )
 
-func jack1() {
+func jack1(){
 	var saisie string
 	fmt.Println("bonjours apprenti voyageur!")
 	wait(500)
@@ -18,7 +18,7 @@ func jack1() {
 	fmt.Println("je voudrais que tu tue le troll des forêts?")
 	fmt.Println("en échange d'une récompense bien sur")
 	fmt.Println("si tu n'accepte pas il y aura des concéquances désastreuse sur cette ville!")
-	fmt.Println("alors si tu accepte ma quête appui sur o, sinon n")
+	fmt.Pintln("alors si tu accepte ma quête appui sur o, sinon n")
 	fmt.Scanln(&saisie)
 	if saisie == "m" {
 		menu()
@@ -35,7 +35,7 @@ func jack1() {
 		ville1()
 		return
 	}
-	if saisie == n {
+	if saisie == n{
 		fmt.Println("ho non, trop tard, le troll arrive, il saccage la ville!")
 		fmt.Println("c'est de t'as faute !")
 		wait(500)
