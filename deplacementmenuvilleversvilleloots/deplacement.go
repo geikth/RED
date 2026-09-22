@@ -26,7 +26,7 @@ func deplacement() {
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
-			menu()
+			menuvilleversville()
 			return
 		}
 

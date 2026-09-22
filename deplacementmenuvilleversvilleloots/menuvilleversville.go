@@ -1,0 +1,31 @@
+package ProjetRED
+
+import (
+	"fmt"
+)
+
+func menuvilleversville() {
+	const o = "o"
+	const n = "n"
+	var saisie string
+	for {
+		fmt.Println("êtes vous sûr de vouloir aller vers une ville?")
+		fmt.Println("appui sur m pour menu principal")
+		fmt.Println("appui sur o pour oui sinon n")
+
+		fmt.Scanln(&saisie)
+
+		if saisie == "m" {
+			menuvilleversville()
+			return
+		}
+		if saisie == o {
+			deplacement()
+			return
+		}
+		if saisie == n {
+			break
+		}
+		fmt.Println("erreur, veuillez entrer une lettre o, n ou m pour le menu principal")
+	}
+}

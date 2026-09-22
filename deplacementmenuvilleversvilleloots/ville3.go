@@ -1,7 +1,7 @@
 package ProjetRED
 
 func ville3() {
-		const j = "j"
+	const o = "o"
 	const f = "f"
 
 	transportdansvilletrois := map[string]func(){
