@@ -1,13 +1,73 @@
 package projetRED
 
 import (
-	ProjetRED "ProjetRED/Personnage"
+	personnage "ProjetRED/Personnage"
+	"bufio"
 	"fmt"
+	"os"
 	"sort"
+	"strconv"
 	"strings"
 )
 
-func DisplayInfo(p ProjetRED.Character) string {
+func MainMenu(p personnage.Character) {
+	for {
+		fmt.Println("\n=== MENU PRINCIPAL ===")
+		fmt.Println("1. Afficher les informations du personnage")
+		fmt.Println("2. Accéder à l'inventaire")
+		fmt.Println("3. Marchand")
+		fmt.Println("4. Forgeron")
+		fmt.Println("0. Quitter")
+
+		choice, ok := ReadChoice("Votre choix : ")
+
+		if !ok {
+			fmt.Println("Choix invalide !")
+			continue
+		}
+
+		switch choice {
+		case 1:
+			DisplayInfo(p)
+			WaitForReturn()
+		case 2:
+			AccessInventory(p)
+			WaitForReturn()
+		case 3:
+			Marchand(p)
+		case 4:
+			Forgeron(p)
+		case 0:
+			fmt.Println("À bientôt !")
+			return
+		default:
+			fmt.Println("Choix invalide !")
+		}
+	}
+}
+
+func ReadChoice(prompt string) (int, bool) {
+	fmt.Print(prompt)
+
+	scanner := bufio.NewScanner(os.Stdin)
+	if !scanner.Scan() {
+		return 0, false
+	}
+
+	value, err := strconv.Atoi(strings.TrimSpace(scanner.Text()))
+	if err != nil {
+		return 0, false
+	}
+
+	return value, true
+}
+
+func WaitForReturn() {
+	fmt.Println("Appuyez sur Entrée pour continuer...")
+	_, _ = fmt.Scanln()
+}
+
+func DisplayInfo(p personnage.Character) string {
 	var sb strings.Builder
 
 	const largeur = 40
@@ -57,7 +117,7 @@ func barreDeVie(pv, pvMax, taille int) string {
 	return "[" + strings.Repeat("█", rempli) + strings.Repeat("░", taille-rempli) + "]"
 }
 
-func AccessInventory(p ProjetRED.Character) string {
+func AccessInventory(p personnage.Character) string {
 	var sb strings.Builder
 
 	const largeur = 40
