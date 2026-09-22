@@ -1,6 +1,7 @@
 package ProjetRED
 
 import (
+	Marchand "ProjetRED/marchand"
 	"fmt"
 )
 
@@ -12,7 +13,7 @@ func ville2() {
 	transportdansvilledeux := map[string]func(){
 		j: jack2,
 		g: grotte,
-		a: marchand,
+		a: Marchand.Marchand,
 	}
 
 	var saisie string
