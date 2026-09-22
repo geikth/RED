@@ -20,7 +20,6 @@ func marchand() {
 		{"Samourai Helmet", 60},
 		{"Samourai Armor", 60},
 		{"Samourai Boots", 60},
-		{"Samourai Boots", 60},
 		{"Lord Armor", 80},
 		{"Lord Boots", 80},
 		{"Lord Battle Axe", 80},
