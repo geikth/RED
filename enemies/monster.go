@@ -21,13 +21,13 @@ type MONSTER struct {
 func initGoblin() MONSTER {
 	return MONSTER{
 		NOM:      "gobelin",
-		PVMax:    30,
-		PV:       30,
-		PVMAXR:   30,
-		PVR:      30,
-		Strength: 8,
-		Defense:  2,
-		Spd:      7,
+		PVMax:    100,
+		PV:       100,
+		PVMAXR:   100,
+		PVR:      100,
+		Strength: 30,
+		Defense:  20,
+		Spd:      1,
 		Reiki:    1,
 		Loot: []LootEntry{
 			{Name: "dague rouillée", Rate: 3},
@@ -45,9 +45,9 @@ func initSkeleton() MONSTER {
 		PV:       35,
 		PVMAXR:   35,
 		PVR:      35,
-		Strength: 10,
+		Strength: 20,
 		Defense:  4,
-		Spd:      5,
+		Spd:      20,
 		Reiki:    2,
 		Loot: []LootEntry{
 			{Name: "tibia", Rate: 8},
@@ -60,14 +60,14 @@ func initSkeleton() MONSTER {
 func initTroll() MONSTER {
 	return MONSTER{
 		NOM:      "troll",
-		PVMax:    80,
-		PV:       80,
-		PVMAXR:   80,
-		PVR:      80,
-		Strength: 18,
-		Defense:  6,
+		PVMax:    300,
+		PV:       300,
+		PVMAXR:   150,
+		PVR:      150,
+		Strength: 50,
+		Defense:  40,
 		Spd:      3,
-		Reiki:    0,
+		Reiki:    1,
 		Loot: []LootEntry{
 			{Name: "massue en bois", Rate: 6},
 			{Name: "peau de troll", Rate: 12},
@@ -80,13 +80,13 @@ func initTroll() MONSTER {
 func initVouivre() MONSTER {
 	return MONSTER{
 		NOM:      "vouivre",
-		PVMax:    55,
-		PV:       55,
-		PVMAXR:   55,
-		PVR:      55,
-		Strength: 15,
-		Defense:  3,
-		Spd:      8,
+		PVMax:    100,
+		PV:       99,
+		PVMAXR:   100,
+		PVR:      99,
+		Strength: 40,
+		Defense:  8,
+		Spd:      200,
 		Reiki:    12,
 		Loot: []LootEntry{
 			{Name: "écaille de vouivre", Rate: 15},
@@ -99,13 +99,13 @@ func initVouivre() MONSTER {
 func initLoupGarou() MONSTER {
 	return MONSTER{
 		NOM:      "loup-garou",
-		PVMax:    65,
-		PV:       65,
-		PVMAXR:   65,
-		PVR:      65,
-		Strength: 17,
-		Defense:  5,
-		Spd:      9,
+		PVMax:    125,
+		PV:       125,
+		PVMAXR:   75,
+		PVR:      75,
+		Strength: 60,
+		Defense:  40,
+		Spd:      25,
 		Reiki:    4,
 		Loot: []LootEntry{
 			{Name: "griffe de loup-garou", Rate: 14},
@@ -120,8 +120,8 @@ func initZombie() MONSTER {
 		NOM:      "zombie",
 		PVMax:    50,
 		PV:       50,
-		PVMAXR:   50,
-		PVR:      50,
+		PVMAXR:   75,
+		PVR:      75,
 		Strength: 12,
 		Defense:  2,
 		Spd:      4,
@@ -138,14 +138,14 @@ func initZombie() MONSTER {
 func initOrc() MONSTER {
 	return MONSTER{
 		NOM:      "orc",
-		PVMax:    68,
-		PV:       68,
-		PVMAXR:   68,
-		PVR:      68,
-		Strength: 19,
-		Defense:  7,
-		Spd:      4,
-		Reiki:    0,
+		PVMax:    150,
+		PV:       150,
+		PVMAXR:   100,
+		PVR:      100,
+		Strength: 30,
+		Defense:  18,
+		Spd:      16,
+		Reiki:    1,
 		Loot: []LootEntry{
 			{Name: "hache d'orc", Rate: 11},
 			{Name: "bouclier cabossé", Rate: 9},
@@ -157,19 +157,87 @@ func initOrc() MONSTER {
 func initDragon() MONSTER {
 	return MONSTER{
 		NOM:      "dragon",
-		PVMax:    140,
-		PV:       140,
-		PVMAXR:   140,
-		PVR:      140,
-		Strength: 30,
-		Defense:  10,
-		Spd:      8,
+		PVMax:    1000,
+		PV:       1000,
+		PVMAXR:   1500,
+		PVR:      1500,
+		Strength: 100,
+		Defense:  26,
+		Spd:      10,
 		Reiki:    18,
 		Loot: []LootEntry{
 			{Name: "écaille de dragon", Rate: 40},
 			{Name: "griffe de dragon", Rate: 30},
 			{Name: "souffle embouteillé", Rate: 50},
 			{Name: "œuf de dragon", Rate: 100},
+		},
+	}
+}
+
+func initBrian() MONSTER {
+	return MONSTER{
+		NOM:      "Le B.",
+		PVMax:    1,
+		PV:       1,
+		PVMAXR:   50000000,
+		PVR:      50000000,
+		Strength: 50,
+		Defense:  2,
+		Spd:      4000,
+		Reiki:    18,
+		Loot: []LootEntry{
+			{Name: "LE BEDOU", Rate: 99},
+		},
+	}
+}
+
+func initAnt() MONSTER {
+	return MONSTER{
+		NOM:      "Le Ant.",
+		PVMax:    10000000000,
+		PV:       10000000000,
+		PVMAXR:   1,
+		PVR:      1,
+		Strength: 50,
+		Defense:  2,
+		Spd:      4000,
+		Reiki:    18,
+		Loot: []LootEntry{
+			{Name: "COMBI FOURMI", Rate: 99},
+		},
+	}
+}
+
+func initLucas() MONSTER {
+	return MONSTER{
+		NOM:      "Le L.",
+		PVMax:    10000000000,
+		PV:       1,
+		PVMAXR:   10000000000,
+		PVR:      1,
+		Strength: 2000000000,
+		Defense:  2,
+		Spd:      1,
+		Reiki:    2,
+		Loot: []LootEntry{
+			{Name: "BOTTE LUCACA", Rate: 99},
+		},
+	}
+}
+
+func initYannis() MONSTER {
+	return MONSTER{
+		NOM:      "Le RELOU",
+		PVMax:    1000,
+		PV:       1000,
+		PVMAXR:   1000,
+		PVR:      1000,
+		Strength: 20,
+		Defense:  10,
+		Spd:      100000000,
+		Reiki:    2,
+		Loot: []LootEntry{
+			{Name: "CASQUE YAYA", Rate: 99},
 		},
 	}
 }

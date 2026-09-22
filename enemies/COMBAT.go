@@ -33,7 +33,7 @@ func SkeletonPattern(tour int, monstre *MONSTER, perso *personnage.Character) {
 	}
 
 	perso.PV -= dgt
-	fmt.Printf("%s attaque avec une rafale osseuse ! %d dégâts à %s\n", monstre.NOM, dgt, perso.Nom)
+	fmt.Printf("%s attaque avec son gros os ! %d dégâts à %s\n", monstre.NOM, dgt, perso.Nom)
 	fmt.Printf("%s : PV %d/%d\n", perso.Nom, perso.PV, perso.PVMax)
 }
 
@@ -48,7 +48,7 @@ func TrollPattern(tour int, monstre *MONSTER, perso *personnage.Character) {
 	}
 
 	perso.PV -= dgt
-	fmt.Printf("%s fracasse le sol avec sa massue ! %d dégâts à %s\n", monstre.NOM, dgt, perso.Nom)
+	fmt.Printf("%s fracasse ton gros crane avec sa massue ! %d dégâts à %s\n", monstre.NOM, dgt, perso.Nom)
 	fmt.Printf("%s : PV %d/%d\n", perso.Nom, perso.PV, perso.PVMax)
 }
 
@@ -78,7 +78,7 @@ func LoupGarouPattern(tour int, monstre *MONSTER, perso *personnage.Character) {
 	}
 
 	perso.PV -= dgt
-	fmt.Printf("%s bondit et mord profondément ! %d dégâts à %s\n", monstre.NOM, dgt, perso.Nom)
+	fmt.Printf("%s bondit et mord profondément  ! %d dégâts à %s\n", monstre.NOM, dgt, perso.Nom)
 	fmt.Printf("%s : PV %d/%d\n", perso.Nom, perso.PV, perso.PVMax)
 }
 
@@ -123,7 +123,7 @@ func DragonPattern(tour int, monstre *MONSTER, perso *personnage.Character) {
 	}
 
 	perso.PV -= dgt
-	fmt.Printf("%s souffle du feu ! %d dégâts à %s\n", monstre.NOM, dgt, perso.Nom)
+	fmt.Printf("%s te carbonise la gueule ! %d dégâts à %s\n", monstre.NOM, dgt, perso.Nom)
 	fmt.Printf("%s : PV %d/%d\n", perso.Nom, perso.PV, perso.PVMax)
 }
 
