@@ -2,7 +2,6 @@ package ProjetRED
 
 import (
 	"fmt"
-
 	personnage "ProjetRED/Personnage"
 )
 
