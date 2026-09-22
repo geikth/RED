@@ -1,9 +1,8 @@
 package ProjetRED
 
 import (
-	"fmt"
-
 	personnage "ProjetRED/Personnage"
+	"fmt"
 )
 
 func UpdateEffects(p *personnage.Character) {
