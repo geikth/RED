@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 
+	Menu "ProjetRED/Menu"
 	personnage "ProjetRED/Personnage"
 	enemies "ProjetRED/enemies"
 )
@@ -43,7 +44,7 @@ func characterTurn(p *personnage.Character, monstre *enemies.MONSTER) {
 		makeAWish(p, monstre)
 
 	case 4:
-		personnage.AccessInventory(*p)
+		Menu.AccessInventory(*p)
 		// à remplacer par une vraie fonction d'utilisation d'objet
 
 	default:
