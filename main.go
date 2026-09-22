@@ -11,3 +11,7 @@ func main() {
 	Equipement.AddItem(jean, Equipement.Items["Swordshield"])
 	Personnage.AccessInventory(jean)
 }
+
+func turn() {
+	// placeholder: besoin de définir une cible et un personnage pour lancer les combats
+}

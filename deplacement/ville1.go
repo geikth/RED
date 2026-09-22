@@ -1,28 +1,28 @@
 package ProjetRED
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
 func ville1() {
-	var saisie string
-	transportdansvilleun := []func(){foret, jack1}
-	fmt.Scanln(&saisie)
-	fmt.Println("vous êtes dans la ville 1")
-	fmt.Println("appui sur m pour le menu")
-	fmt.Println("appui sur j pour aller parler a jack (conseiller avant la forêt)")
-	fmt.Println("appui sur f pour aller dans la forêt")
+	for {
+		var saisie string
+		fmt.Println("vous êtes dans la ville 1")
+		fmt.Println("appui sur m pour le menu")
+		fmt.Println("appui sur j pour aller parler a jack")
+		fmt.Println("appui sur f pour aller dans la forêt")
+		fmt.Scanln(&saisie)
 
-	if saisie == "m" {
-		menu()
-		return
+		switch saisie {
+		case "m", "M":
+			menu()
+			return
+		case "j", "J":
+			jack1()
+			return
+		case "f", "F":
+			foret()
+			return
+		default:
+			fmt.Println("erreur, veuillez entrer f, j ou m pour le menu")
+		}
 	}
-	choixdansvilleun, err := strconv.Atoi(saisie)
-	if err != nil || choixdansvilleun != j || choixdansvilleun != f {
-		fmt.Println("erreur, veuillez entrer une lettre f,  ou m pour le menu")
-		continue
-	}
-	transportdansvilleun[choixdansvilleun-1]()
-	return
 }

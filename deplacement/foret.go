@@ -1,8 +1,8 @@
 package ProjetRED
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
+
 func foret() {
-	fmt.Println()
+	fmt.Println("Vous entrez dans la forêt.")
+	fmt.Println("Le vent souffle et les arbres bruissent.")
+}

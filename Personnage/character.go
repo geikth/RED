@@ -38,16 +38,16 @@ type Classe struct {
 
 func CharacterCreation(nom string, classe Classe) Character {
 	return Character{
-		Nom:       Capitalize(nom),
-		Classe:    classe,
-		LVL:       1,
-		XP:        0,
-		PVMax:     classe.PVMax,
-		PV:        classe.PVMax,
-		Strength:  classe.Strength,
-		Defense:   classe.Defense,
-		Reiki:     classe.Reiki,
-		Spd:       classe.Spd,
+		Nom:      Capitalize(nom),
+		Classe:   classe,
+		LVL:      1,
+		XP:       0,
+		PVMax:    classe.PVMax,
+		PV:       classe.PVMax,
+		Strength: classe.Strength,
+		Defense:  classe.Defense,
+		Reiki:    classe.Reiki,
+		Spd:      classe.Spd,
 		Inventory: Inventory{
 			Items:       make(map[string]int),
 			Consumables: make(map[string]int),
@@ -58,7 +58,7 @@ func CharacterCreation(nom string, classe Classe) Character {
 }
 
 type Inventory struct {
-    Items       map[string]int
-    Consumables map[string]int
-    Materials   map[string]int
+	Items       map[string]int
+	Consumables map[string]int
+	Materials   map[string]int
 }

@@ -52,6 +52,6 @@ func marchand() {
 	fmt.Println("Total :", total, "pièces")
 
 	var saisie string
-	propositionmarchand := []func(){}
+	_ = []func(){}
 	fmt.Scanln(&saisie)
 }
