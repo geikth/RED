@@ -1,6 +1,7 @@
 package projetRED
 
 import (
+	Equipement "ProjetRED/Equipement"
 	personnage "ProjetRED/Personnage"
 	"bufio"
 	"fmt"
@@ -10,6 +11,7 @@ import (
 	"strings"
 )
 
+// menu du lancement
 func StartMenu() {
 
 	fmt.Println("\n=== MENU CREATION ===")
@@ -34,6 +36,7 @@ func StartMenu() {
 	}
 }
 
+// menu principal qui permet de faire pivot
 func MainMenu(p personnage.Character) {
 	for {
 		fmt.Println("\n=== MENU PRINCIPAL ===")
@@ -55,7 +58,7 @@ func MainMenu(p personnage.Character) {
 			DisplayInfo(p)
 			WaitForReturn()
 		case 2:
-			AccessInventory(p)
+			ManageInventory(p)
 			WaitForReturn()
 		case 3:
 			Marchand(p)
@@ -162,6 +165,10 @@ func AccessInventory(p personnage.Character) string {
 	fmt.Fprintf(&sb, "│ %-38s │\n", "Consommables")
 	ecrireSection(&sb, p.Inventory.Consumables)
 
+	fmt.Fprintf(&sb, "├%s┤\n", ligne)
+	fmt.Fprintf(&sb, "│ %-38s │\n", "Livre de Sort")
+	ecrireSection(&sb, p.Inventory.SkillBooks)
+
 	fmt.Fprintf(&sb, "╰%s╯\n", ligne)
 
 	result := sb.String()
@@ -217,4 +224,147 @@ func CreerPerso() (string, personnage.Classe) {
 		fmt.Println("Choix invalide, classe par défaut : Ronin")
 		return nom, personnage.Classes["Ronin"]
 	}
+}
+
+func ManageInventory(p personnage.Character) {
+	AccessInventory(p)
+
+	fmt.Println("\n=== Inventaire ===")
+	fmt.Println("1. Interagire avec les Objets ")    // armure etc
+	fmt.Println("2. Interagire avec les Consomable") // potion
+	fmt.Println("3. Interagire avec les Livre de Sort ")
+	fmt.Println("0. Quitter")
+
+	choice, reponse := ReadChoice("Votre choix : ")
+
+	if !reponse {
+		fmt.Println("Choix invalide !")
+		ManageInventory(p)
+	}
+
+	switch choice {
+	case 1:
+		SelectFromList(p, DisplayItem(p), "item")
+		WaitForReturn()
+	case 2:
+		SelectFromList(p, DisplayConsumables(p), "consumable")
+		WaitForReturn()
+	case 3:
+		SelectFromList(p, DisplaySkillBooks(p), "skillbook")
+		WaitForReturn()
+	case 0:
+		fmt.Println("À bientôt !")
+		return
+	default:
+		fmt.Println("Choix invalide !")
+		ManageInventory(p)
+	}
+}
+
+// Crée une nouvelle func qui permet de lister tout ce qu'il y a dans la partie Inventory.Items
+func DisplayItem(p personnage.Character) []string {
+	if len(p.Inventory.Items) == 0 {
+		fmt.Println("Aucun objet dans l'inventaire.")
+		return nil
+	}
+
+	names := make([]string, 0, len(p.Inventory.Items))
+	for name := range p.Inventory.Items {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+
+	fmt.Println("=== Items ===")
+	for i, name := range names {
+		fmt.Printf("%d. %s (x%d)\n", i+1, name, p.Inventory.Items[name])
+	}
+
+	return names
+}
+
+// Crée une nouvelle func qui permet de lister tout ce qu'il y a dans la partie Inventory.Consumables
+func DisplayConsumables(p personnage.Character) []string {
+	if len(p.Inventory.Consumables) == 0 {
+		fmt.Println("Aucun consommable dans l'inventaire.")
+		return nil
+	}
+
+	names := make([]string, 0, len(p.Inventory.Consumables))
+	for name := range p.Inventory.Consumables {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+
+	fmt.Println("=== Consommables ===")
+	for i, name := range names {
+		fmt.Printf("%d. %s (x%d)\n", i+1, name, p.Inventory.Consumables[name])
+	}
+
+	return names
+}
+
+// Crée une nouvelle func qui permet de lister tout ce qu'il y a dans la partie Inventory.SkillBooks
+func DisplaySkillBooks(p personnage.Character) []string {
+	if len(p.Inventory.SkillBooks) == 0 {
+		fmt.Println("Aucun livre de compétence dans l'inventaire.")
+		return nil
+	}
+
+	names := make([]string, 0, len(p.Inventory.SkillBooks))
+	for name := range p.Inventory.SkillBooks {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+
+	fmt.Println("=== Livres de compétences ===")
+	for i, name := range names {
+		fmt.Printf("%d. %s (x%d)\n", i+1, name, p.Inventory.SkillBooks[name])
+	}
+
+	return names
+}
+
+// Fonction générique de sélection, compatible avec les 3 Display ci-dessus
+// On lui passe la liste (retournée par un Display) et elle gère le choix
+func SelectFromList(p personnage.Character, names []string, category string) string {
+	if names == nil {
+		return ""
+	}
+
+	fmt.Println("0. Ne rien faire")
+	fmt.Print("Choisis le Numero de l'objet que tu souhaite Utilisé/Equipé : ")
+	var choice int
+	fmt.Scan(&choice)
+
+	if choice == 0 {
+		fmt.Println("Aucune action effectuée.")
+		SelectFromList(p, names, category)
+		return ""
+	}
+
+	if choice < 1 || choice > len(names) {
+		fmt.Println("Choix invalide.")
+		SelectFromList(p, names, category)
+		return ""
+	}
+
+	selected := names[choice-1]
+
+	switch category {
+	case "item":
+		fmt.Println("Tu as sélectionné un objet :", selected)
+
+	case "consumable":
+		fmt.Println("Tu as sélectionné un consommable :", selected)
+		if consumable, ok := Equipement.GetConsumableByName(selected); ok {
+			Equipement.UseConsumable(&p, consumable)
+		} else {
+			fmt.Println("Consommable introuvable.")
+		}
+	case "skillbook":
+		fmt.Println("Tu as sélectionné un livre de sort :", selected)
+
+	}
+
+	return selected
 }

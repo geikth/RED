@@ -115,3 +115,15 @@ var Materials = map[string]Material{
 	"Cristal": {Name: "Cristal", MaxStack: 64},
 	"Diamant": {Name: "Diamant", MaxStack: 64},
 }
+
+
+var ConsumablesRegistry = map[string]Consumable{
+	HealingPotion.Name:   HealingPotion,
+	PoisonDOTPotion.Name: PoisonDOTPotion,
+	Pain.Name:            Pain,
+}
+
+func GetConsumableByName(name string) (Consumable, bool) {
+	item, ok := ConsumablesRegistry[name]
+	return item, ok
+}
