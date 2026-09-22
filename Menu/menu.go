@@ -10,6 +10,30 @@ import (
 	"strings"
 )
 
+func StartMenu() {
+
+	fmt.Println("\n=== MENU CREATION ===")
+	fmt.Println("1. Crée un nouveau Personage")
+	fmt.Println("0. Quitter")
+	choice, reponse := ReadChoice("Votre choix : ")
+	if !reponse {
+		fmt.Println("Choix invalide !")
+		StartMenu()
+	}
+	switch choice {
+	case 1:
+		nom, classe := CreerPerso()
+		Player := personnage.CharacterCreation(nom, classe)
+		MainMenu(Player)
+	case 0:
+		fmt.Println("Au Revoir !")
+		return
+	default:
+		fmt.Println("Choix invalide !")
+
+	}
+}
+
 func MainMenu(p personnage.Character) {
 	for {
 		fmt.Println("\n=== MENU PRINCIPAL ===")
@@ -19,9 +43,9 @@ func MainMenu(p personnage.Character) {
 		fmt.Println("4. Forgeron")
 		fmt.Println("0. Quitter")
 
-		choice, ok := ReadChoice("Votre choix : ")
+		choice, reponse := ReadChoice("Votre choix : ")
 
-		if !ok {
+		if !reponse {
 			fmt.Println("Choix invalide !")
 			continue
 		}
@@ -46,6 +70,7 @@ func MainMenu(p personnage.Character) {
 	}
 }
 
+// lis la reponse donné depuis le terminal
 func ReadChoice(prompt string) (int, bool) {
 	fmt.Print(prompt)
 
@@ -62,11 +87,13 @@ func ReadChoice(prompt string) (int, bool) {
 	return value, true
 }
 
+// attend que le joeure apuis sur entré
 func WaitForReturn() {
 	fmt.Println("Appuyez sur Entrée pour continuer...")
 	_, _ = fmt.Scanln()
 }
 
+// affiche les info du joeur
 func DisplayInfo(p personnage.Character) string {
 	var sb strings.Builder
 
@@ -117,6 +144,7 @@ func barreDeVie(pv, pvMax, taille int) string {
 	return "[" + strings.Repeat("█", rempli) + strings.Repeat("░", taille-rempli) + "]"
 }
 
+// affiche l'inventaire du joueur
 func AccessInventory(p personnage.Character) string {
 	var sb strings.Builder
 
@@ -157,5 +185,36 @@ func ecrireSection(sb *strings.Builder, items map[string]int) {
 	for _, name := range keys {
 		ligne := fmt.Sprintf("%s x%d", name, items[name])
 		fmt.Fprintf(sb, "│   %-36s │\n", ligne)
+	}
+}
+
+// fonction renvoie les variables qui seront données au character creator
+func CreerPerso() (string, personnage.Classe) {
+	fmt.Print("Quel est votre nom ? ")
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Scan()
+	nom := strings.TrimSpace(scanner.Text())
+
+	fmt.Println("Choisissez le numero d'une classe :")
+	fmt.Println("1. Ronin")
+	fmt.Println("2. Cuirassé")
+	fmt.Println("3. Mage spirituel")
+
+	choice, ok := ReadChoice("Votre choix : ")
+	if !ok {
+		fmt.Println("Choix invalide, classe par défaut : Ronin")
+		return nom, personnage.Classes["Ronin"]
+	}
+
+	switch choice {
+	case 1:
+		return nom, personnage.Classes["Ronin"]
+	case 2:
+		return nom, personnage.Classes["Cuirasé"]
+	case 3:
+		return nom, personnage.Classes["mage spirituel"]
+	default:
+		fmt.Println("Choix invalide, classe par défaut : Ronin")
+		return nom, personnage.Classes["Ronin"]
 	}
 }
