@@ -11,5 +11,6 @@ func main() {
 	Equipement.AddItem(jean, Equipement.Items["Swordshield"])
 	Menu.DisplayInfo(jean)
 	Menu.AccessInventory(jean)
+	jean.PV = 20
 	Menu.MainMenu(jean)
 }
