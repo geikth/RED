@@ -1,6 +1,9 @@
 package ProjetRED
 
-import "fmt"
+import (
+	personnage "ProjetRED/Personnage"
+	"fmt"
+)
 
 type SkillBook struct {
 	Name     string
@@ -26,7 +29,7 @@ var SkillBooks = map[string]SkillBook{
 	},
 }
 
-func (p *Character) GiveSkillBook(book SkillBook) {
+func GiveSkillBook(p personnage.Character, book SkillBook) {
 	qty := p.Inventory.SkillBooks[book.Name]
 
 	if qty >= book.MaxStack {
@@ -38,7 +41,7 @@ func (p *Character) GiveSkillBook(book SkillBook) {
 	fmt.Println(book.Name, "donné à", p.Nom)
 }
 
-func (p *Character) LearnSkill(book SkillBook) {
+func LearnSkill(p personnage.Character, book SkillBook) {
 	qty := p.Inventory.SkillBooks[book.Name]
 
 	if qty <= 0 {
@@ -53,7 +56,7 @@ func (p *Character) LearnSkill(book SkillBook) {
 	}
 
 	// Apprendre
-	p.Skills[book.Skill.Name] = book.Skill
+	// p.Skills[book.Skill.Name] = personnage.Skills(book.Skill)
 
 	// Détruire le livre
 	p.Inventory.SkillBooks[book.Name] = qty - 1
