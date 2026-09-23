@@ -1,7 +1,7 @@
 package ProjetRED
 
 import (
-	Marchand "ProjetRED/Marchand"
+	Marchand "ProjetRED/marchand"
 	"fmt"
 )
 
