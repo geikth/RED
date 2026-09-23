@@ -18,7 +18,7 @@ func Jack4() {
 	time.Sleep(1 * time.Second)
 	fmt.Println("c'est alors pour cela que j'ai besoin de ton aide!")
 	time.Sleep(1 * time.Second)
-	fmt.Println("je voudrais que tu tue le vert des sable?")
+	fmt.Println("je voudrais que tu tue le boss Maxime?")
 	time.Sleep(1 * time.Second)
 	fmt.Println("en échange d'une récompense bien sur")
 	time.Sleep(1 * time.Second)
@@ -26,7 +26,7 @@ func Jack4() {
 	time.Sleep(1 * time.Second)
 	fmt.Println("alors si tu accepte ma quête appui sur o, sinon n, ou bien m pour le menu")
 	for {
-		saisie = "" // évite de réutiliser l'ancienne valeur si l'utilisateur appuie juste sur Entrée
+		saisie = ""
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
@@ -35,7 +35,7 @@ func Jack4() {
 		}
 		if saisie == o {
 			fmt.Println("merci tu vas sauver la ville et tout ses habitants")
-			fmt.Println("je te donnerais t'as récompense une fois le ver géant battu")
+			fmt.Println("je te donnerais t'as récompense une fois le boss battu")
 			Ville1()
 			return
 		}

@@ -8,14 +8,14 @@ func Ville4() {
 	const j = "j"
 	const p = "p"
 
-	transportdansvilletrois := map[string]func(){
+	transportdansvillequatre := map[string]func(){
 		j: Jack4,
 		p: Plaine,
 	}
 	var saisie string
 
 	for {
-		fmt.Println("vous êtes dans la ville 3")
+		fmt.Println("vous êtes dans la ville 4")
 		fmt.Println("appui sur m pour le menu")
 		fmt.Println("appui sur j pour aller parler a jack (conseiller avant la plaine)")
 		fmt.Println("appui sur p pour aller dans la plaine")
@@ -33,5 +33,5 @@ func Ville4() {
 		fmt.Println("erreur, veuillez entrer une lettre p, j ou m pour le menu")
 	}
 
-	transportdansvilletrois[saisie]()
+	transportdansvillequatre[saisie]()
 }
