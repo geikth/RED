@@ -1,6 +1,8 @@
 package ProjetRED
 
-import personnage "ProjetRED/Personnage"
+import (
+	personnage "ProjetRED/Personnage"
+)
 
 type Skill struct {
 	Name       string
@@ -42,7 +44,7 @@ var SkillList = map[string]Skill{
 	},
 }
 
-func CalculateSkillDamage(p *personnage.Character, skill Skill) int {
+func CalculateSkillDamage(p personnage.Character, skill Skill) int {
 	dmg := skill.BaseDamage
 
 	switch skill.Type {
