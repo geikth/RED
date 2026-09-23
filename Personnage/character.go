@@ -86,6 +86,5 @@ type Inventory struct {
 	Items       map[string]int
 	Consumables map[string]int
 	Materials   map[string]int
-	Skill       map[string]int
 	SkillBooks  map[string]int
 }
