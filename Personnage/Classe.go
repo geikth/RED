@@ -4,11 +4,11 @@ var Classes = map[string]Classe{
 	// sabre / katana
 	"Ronin": {
 		Nom:      "Ronin",
-		PVMax:    51,
-		Strength: 27,
-		Defense:  18,
-		Reiki:    2,
-		Spd:      20,
+		PVMax:    30,
+		Strength: 20,
+		Defense:  10,
+		Reiki:    5,
+		Spd:      15,
 		Weapon:   "Bandit_Spear",
 		Helmet:   "Bandit_Helmet",
 		Armor:    "Bandit_Armor",
@@ -17,10 +17,10 @@ var Classes = map[string]Classe{
 	// bouclier combat(donc epée + bouclier)
 	"Cuirassé": {
 		Nom:      "Cuirassé",
-		PVMax:    58,
-		Strength: 16,
-		Defense:  22,
-		Reiki:    6,
+		PVMax:    40,
+		Strength: 15,
+		Defense:  15,
+		Reiki:    5,
 		Spd:      5,
 		Weapon:   "Swordshield",
 		Helmet:   "Samourai_Helmet",
@@ -30,11 +30,11 @@ var Classes = map[string]Classe{
 	// un seul et meme item (bague boucle bijoux)
 	"mage spirituel": {
 		Nom:      "mage spirituel",
-		PVMax:    44,
-		Strength: 8,
-		Defense:  10,
-		Reiki:    32,
-		Spd:      13,
+		PVMax:    30,
+		Strength: 5,
+		Defense:  8,
+		Reiki:    30,
+		Spd:      15,
 		Weapon:   "Elementalist_Rings",
 		Helmet:   "Mage_Hood",
 		Armor:    "Mage_Robe",
