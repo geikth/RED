@@ -352,7 +352,14 @@ func SelectFromList(p *personnage.Character, names []string, category string) st
 
 	switch category {
 	case "item":
-		fmt.Println("Tu as sélectionné un objet :", selected)
+		item, ok := Equipement.Items[selected]
+		if !ok {
+			fmt.Println("Objet introuvable.")
+			break
+		}
+
+		Equipement.EquipItem(p, strings.ToLower(string(item.Type)), item)
+		fmt.Println("Tu équipes :", item.Name)
 
 	case "consumable":
 		fmt.Println("Tu as sélectionné un consommable :", selected)

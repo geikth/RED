@@ -10,9 +10,9 @@ import (
 func main() {
 	jean := personnage.CharacterCreation("jean", personnage.Classes["Ronin"])
 	Equipement.AddConsumable(&jean, Equipement.HealingPotion)
-	Equipement.AddItem(jean, Equipement.Items["Swordshield"])
+	Equipement.AddItem(&jean, Equipement.Items["Swordshield"])
 	Equipement.AddConsumable(&jean, Equipement.HealingPotion)
-	Equipement.AddItem(jean, Equipement.Items["Dagger"])
+	Equipement.AddItem(&jean, Equipement.Items["Dagger"])
 	jean.PV = 1
 	Menu.DisplayInfo(jean)
 	Menu.AccessInventory(jean)
