@@ -25,7 +25,6 @@ var ForgeRecipes = map[string]Recipe{
 		Result: Equipement.Items["Maximilian Boots"],
 		Cost: map[string]int{
 			"Iron":    10,
-			"Diamant": 5,
 			"Leather": 20,
 		},
 	},
@@ -34,7 +33,6 @@ var ForgeRecipes = map[string]Recipe{
 		Cost: map[string]int{
 			"Iron":    20,
 			"Crystal": 15,
-			"Diamant": 5,
 		},
 	},
 	"Maximilian Helmet": {
