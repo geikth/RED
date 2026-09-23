@@ -109,7 +109,7 @@ var PoisonDOTPotion = Consumable{
 }
 var Pain = Consumable{
 	Name:     "Pain",
-	Heal:     15,
+	Heal:     20,
 	MaxStack: 10,
 }
 
@@ -120,7 +120,6 @@ var Materials = map[string]Material{
 	"Cristal": {Name: "Cristal", MaxStack: 64},
 	"Diamant": {Name: "Diamant", MaxStack: 64},
 }
-
 
 var ConsumablesRegistry = map[string]Consumable{
 	HealingPotion.Name:   HealingPotion,

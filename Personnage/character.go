@@ -8,14 +8,14 @@ type StatusEffect struct {
 	TimeLeft int
 }
 
-type Skills struct {
+type Skill struct {
 	Name      string
 	Damage    int
 	Reiki     int
 	Heal      int
 	Type      string
 	Strength  int
-	précision int
+	precision int
 }
 
 type Character struct {
