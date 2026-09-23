@@ -1,28 +1,39 @@
 package ProjetRED
 
 import (
-	"fmt"
 	personnage "ProjetRED/Personnage"
+	"fmt"
 )
 
-func UpdateEffects(p *personnage.Character) {
+func (p *personnage.Character) UpdateEffects() {
 	newEffects := []personnage.StatusEffect{}
 
-	for i := range p.Effects {
-		e := &p.Effects[i]
+	for _, e := range p.Effects {
+
+		// Appliquer l'effet
+		p.PV -= e.Damage
+
+		// Clamp PV
+		if p.PV > p.PVMax {
+			p.PV = p.PVMax
+		}
+		if p.PV < 0 {
+			p.PV = 0
+		}
+
+		// Affichage
+		if e.Damage > 0 {
+			fmt.Println(p.Nom, "subit", e.Damage, "dégâts de", e.Name, "PV :", p.PV)
+		} else {
+			fmt.Println(p.Nom, "récupère", -e.Damage, "PV grâce à", e.Name, "PV :", p.PV)
+		}
+
+		// Réduire le temps restant
+		e.TimeLeft -= e.Interval
+
+		// Garder l'effet s’il reste du temps
 		if e.TimeLeft > 0 {
-			p.PV -= e.Damage
-			if p.PV < 0 {
-				p.PV = 0
-			}
-
-			fmt.Println(p.Nom, "subit", e.Damage, "dégâts de poison ! PV :", p.PV)
-
-			e.TimeLeft -= e.Interval
-
-			if e.TimeLeft > 0 {
-				newEffects = append(newEffects, *e)
-			}
+			newEffects = append(newEffects, e)
 		}
 	}
 

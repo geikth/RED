@@ -24,6 +24,11 @@ var SkillList = map[string]Skill{
 		BaseDamage: 5,
 		Type:       "Nature",
 	},
+	"Dragon Slayer": {
+		Name: 		"Dragon Slayer",
+		BaseDamage: 50,
+		Type: 		"Nature",
+	}
 	"Fireball": {
 		Name:       "Fireball",
 		BaseDamage: 30,
@@ -36,8 +41,8 @@ var SkillList = map[string]Skill{
 		Cooldown:   3,
 		Type:       "Magic",
 	},
-	"Heal": {
-		Name:     "Heal",
+	"Healing": {
+		Name:     "Healing",
 		Heal:     40,
 		Cooldown: 3,
 		Type:     "Magic",
