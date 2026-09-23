@@ -10,9 +10,9 @@ var vv2 = false
 var vv3 = false
 var vv4 = false
 
-func deplacement() {
+func Deplacement() {
 	villesValides := []bool{vv1, vv2, vv3, vv4}
-	villetransport := []func(){ville1, ville2, ville3, ville4}
+	villetransport := []func(){Ville1, Ville2, Ville3, Ville4}
 
 	for {
 		fmt.Println("aller vers : ")
@@ -26,7 +26,7 @@ func deplacement() {
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
-			menu()
+			Menuvilleversville()
 			return
 		}
 

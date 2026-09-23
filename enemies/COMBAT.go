@@ -1,31 +1,9 @@
-package ProjetRED
+package main
 
-import (
-	personnage "ProjetRED/Personnage"
-	"fmt"
-)
+import "fmt"
 
-type MonsterPattern func(tour int, monstre *MONSTER, perso *personnage.Character)
-
-func GoblinPattern(tour int, monstre *MONSTER, perso *personnage.Character) {
-	if monstre == nil || perso == nil {
-		return
-	}
-
-	dgt := monstre.Strength
-	if tour%3 == 0 {
-		dgt *= 2
-	}
-
-	perso.PV -= dgt
-	fmt.Printf("%s frappe avec sa massue ! %d dégâts à %s\n", monstre.NOM, dgt, perso.Nom)
-	fmt.Printf("%s : PV %d/%d\n", perso.Nom, perso.PV, perso.PVMax)
-}
-
-func SkeletonPattern(tour int, monstre *MONSTER, perso *personnage.Character) {
-	if monstre == nil || perso == nil {
-		return
-	}
+func goblinPattern(tour int, character *MONSTER) {
+	gobelin := initGoblin()
 
 	dgt := monstre.Strength + 2
 	if tour%2 == 0 {

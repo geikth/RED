@@ -1,12 +1,11 @@
 package main
 
 import (
-	Menu "ProjetRED/Menu"
+	//Equipement "ProjetRED/Equipement"
+	//Personnage "ProjetRED/Personnage"
+	Deplacement "ProjetRED/deplacementville"
 )
 
 func main() {
-	Menu.StartMenu()
-}
-func turn() {
-	// placeholder: besoin de définir une cible et un personnage pour lancer les combats
+	Deplacement.Deplacement()
 }
