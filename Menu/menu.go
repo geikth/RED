@@ -26,7 +26,7 @@ func StartMenu() {
 	case 1:
 		nom, classe := CreerPerso()
 		Player := personnage.CharacterCreation(nom, classe)
-		MainMenu(Player)
+		MainMenu(&Player)
 	case 0:
 		fmt.Println("Au Revoir !")
 		return
@@ -37,7 +37,7 @@ func StartMenu() {
 }
 
 // menu principal qui permet de faire pivot
-func MainMenu(p personnage.Character) {
+func MainMenu(p *personnage.Character) {
 	for {
 		fmt.Println("\n=== MENU PRINCIPAL ===")
 		fmt.Println("1. Afficher les informations du personnage")
@@ -55,15 +55,15 @@ func MainMenu(p personnage.Character) {
 
 		switch choice {
 		case 1:
-			DisplayInfo(p)
+			DisplayInfo(*p)
 			WaitForReturn()
 		case 2:
 			ManageInventory(p)
 			WaitForReturn()
 		case 3:
-			Marchand(p)
+			Marchand(*p)
 		case 4:
-			Forgeron(p)
+			Forgeron(*p)
 		case 0:
 			fmt.Println("À bientôt !")
 			return
@@ -226,8 +226,8 @@ func CreerPerso() (string, personnage.Classe) {
 	}
 }
 
-func ManageInventory(p personnage.Character) {
-	AccessInventory(p)
+func ManageInventory(p *personnage.Character) {
+	AccessInventory(*p)
 
 	fmt.Println("\n=== Inventaire ===")
 	fmt.Println("1. Interagire avec les Objets ")    // armure etc
@@ -244,13 +244,13 @@ func ManageInventory(p personnage.Character) {
 
 	switch choice {
 	case 1:
-		SelectFromList(p, DisplayItem(p), "item")
+		SelectFromList(p, DisplayItem(*p), "item")
 		WaitForReturn()
 	case 2:
-		SelectFromList(p, DisplayConsumables(p), "consumable")
+		SelectFromList(p, DisplayConsumables(*p), "consumable")
 		WaitForReturn()
 	case 3:
-		SelectFromList(p, DisplaySkillBooks(p), "skillbook")
+		SelectFromList(p, DisplaySkillBooks(*p), "skillbook")
 		WaitForReturn()
 	case 0:
 		fmt.Println("À bientôt !")
@@ -326,7 +326,7 @@ func DisplaySkillBooks(p personnage.Character) []string {
 
 // Fonction générique de sélection, compatible avec les 3 Display ci-dessus
 // On lui passe la liste (retournée par un Display) et elle gère le choix
-func SelectFromList(p personnage.Character, names []string, category string) string {
+func SelectFromList(p *personnage.Character, names []string, category string) string {
 	if names == nil {
 		return ""
 	}
@@ -357,7 +357,7 @@ func SelectFromList(p personnage.Character, names []string, category string) str
 	case "consumable":
 		fmt.Println("Tu as sélectionné un consommable :", selected)
 		if consumable, ok := Equipement.GetConsumableByName(selected); ok {
-			Equipement.UseConsumable(&p, consumable)
+			Equipement.UseConsumable(p, consumable)
 		} else {
 			fmt.Println("Consommable introuvable.")
 		}

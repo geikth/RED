@@ -39,7 +39,7 @@ type Character struct {
 	Effects   []StatusEffect
 
 	Cooldowns map[string]int
-	Skills    map[string]Skills
+	Skills    map[string]Skill
 }
 
 type Classe struct {
@@ -75,10 +75,11 @@ func CharacterCreation(nom string, classe Classe) Character {
 			Items:       make(map[string]int),
 			Consumables: make(map[string]int),
 			Materials:   make(map[string]int),
-			Skill:       make(map[string]int),
 			SkillBooks:  make(map[string]int),
 		},
-		Effects: []StatusEffect{},
+		Effects:   []StatusEffect{},
+		Cooldowns: make(map[string]int),
+		Skills:    map[string]Skill{},
 	}
 }
 

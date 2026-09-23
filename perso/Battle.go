@@ -44,8 +44,7 @@ func characterTurn(p *personnage.Character, monstre *enemies.MONSTER) {
 		makeAWish(p, monstre)
 
 	case 4:
-		Menu.AccessInventory(*p)
-		// à remplacer par une vraie fonction d'utilisation d'objet
+		Menu.ManageInventory(p)
 
 	default:
 		fmt.Println("Choix invalide")

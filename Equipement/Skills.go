@@ -25,10 +25,15 @@ var SkillList = map[string]Skill{
 		Type:       "Nature",
 	},
 	"Dragon Slayer": {
-		Name: 		"Dragon Slayer",
+		Name:       "Dragon Slayer",
 		BaseDamage: 50,
-		Type: 		"Nature",
-	}
+		Type:       "Nature",
+	},
+	"Charge": {
+		Name:       "Charge",
+		BaseDamage: 10,
+		Type:       "Nature",
+	},
 	"Fireball": {
 		Name:       "Fireball",
 		BaseDamage: 30,
