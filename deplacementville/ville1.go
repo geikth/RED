@@ -4,13 +4,13 @@ import (
 	"fmt"
 )
 
-func ville1() {
+func Ville1() {
 	const j = "j"
 	const f = "f"
 
 	transportdansvilleun := map[string]func(){
-		j: jack1,
-		f: foret,
+		j: Jack1,
+		f: Foret,
 	}
 
 	var saisie string
@@ -24,7 +24,7 @@ func ville1() {
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
-			menuvilleversville()
+			Menuvilleversville()
 			return
 		}
 		if saisie == j || saisie == f {

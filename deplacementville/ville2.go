@@ -1,18 +1,19 @@
 package ProjetRED
 
 import (
+	Marchand "ProjetRED/Marchand"
 	"fmt"
 )
 
-func ville2() {
+func Ville2() {
 	const j = "j"
 	const g = "g"
 	const a = "a"
 
 	transportdansvilledeux := map[string]func(){
-		j: jack2,
-		g: grotte,
-		a: marchand,
+		j: Jack2,
+		g: Grotte,
+		a: Marchand.Marchand,
 	}
 
 	var saisie string
@@ -28,7 +29,7 @@ func ville2() {
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
-			menuvilleversville()
+			Menuvilleversville()
 			return
 		}
 		if saisie == j || saisie == g || saisie == a {

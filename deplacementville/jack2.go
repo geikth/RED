@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func jack2() {
+func Jack2() {
 	var saisie string
 	fmt.Println("bonjours apprenti voyageur!")
 	time.Sleep(500 * time.Millisecond)
@@ -24,13 +24,13 @@ func jack2() {
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
-			menuvilleversville()
+			Menuvilleversville()
 			return
 		}
 		if saisie == o {
 			fmt.Println("merci tu vas sauver la ville et tout ses habitants")
 			fmt.Println("je te donnerais t'as récompense une fois l'ogre  battu")
-			ville1()
+			Ville1()
 			return
 		}
 		if saisie == n {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func grotte() {
+func Grotte() {
 	fmt.Println("malheureux, tu as osé pénétrer dans la grotte de l'ogre !")
 	fmt.Println("et pas n'importe lequel...")
 	fmt.Println("c'est un Onihitokuchi")

@@ -6,23 +6,25 @@ import (
 	"time"
 )
 
-const o = "o"
-const n = "n"
-const m = "m"
-
-func Jack1() {
+func Jack4() {
 	var saisie string
 	fmt.Println("bonjours apprenti voyageur!")
-	time.Sleep(500 * time.Millisecond)
+	time.Sleep(1 * time.Second)
 	fmt.Print("je suis jack ton fidèle amis donneur de quête...")
-	time.Sleep(500 * time.Millisecond)
+	time.Sleep(1 * time.Second)
 	fmt.Println("chiante il faut se l'avouer")
+	time.Sleep(1 * time.Second)
 	fmt.Println("mais que serai se monde sans ?")
+	time.Sleep(1 * time.Second)
 	fmt.Println("c'est alors pour cela que j'ai besoin de ton aide!")
-	fmt.Println("je voudrais que tu tue le troll des forêts?")
+	time.Sleep(1 * time.Second)
+	fmt.Println("je voudrais que tu tue le vert des sable?")
+	time.Sleep(1 * time.Second)
 	fmt.Println("en échange d'une récompense bien sur")
+	time.Sleep(1 * time.Second)
 	fmt.Println("si tu n'accepte pas il y aura des concéquances désastreuse sur cette ville!")
-	fmt.Println("alors si tu accepte ma quête appui sur o, sinon n")
+	time.Sleep(1 * time.Second)
+	fmt.Println("alors si tu accepte ma quête appui sur o, sinon n, ou bien m pour le menu")
 	for {
 		saisie = "" // évite de réutiliser l'ancienne valeur si l'utilisateur appuie juste sur Entrée
 		fmt.Scanln(&saisie)
@@ -31,15 +33,22 @@ func Jack1() {
 			Menuvilleversville()
 			return
 		}
-
 		if saisie == o {
 			fmt.Println("merci tu vas sauver la ville et tout ses habitants")
-			fmt.Println("je te donnerais t'as récompense une fois le troll battu")
+			fmt.Println("je te donnerais t'as récompense une fois le ver géant battu")
 			Ville1()
 			return
 		}
 		if saisie == n {
-			fmt.Println("ho non, trop tard, le troll arrive, il saccage la ville!")
+			fmt.Println("ho non, trop tard, le roi démon : MAXIME...")
+			time.Sleep(3 * time.Second)
+			fmt.Println("il...")
+			time.Sleep(1 * time.Second)
+			fmt.Println("il...")
+			time.Sleep(1 * time.Second)
+			fmt.Println("il...")
+			time.Sleep(1 * time.Second)
+			fmt.Println("il est là!! il saccage la ville! ")
 			fmt.Println("c'est de t'as faute !")
 			time.Sleep(500 * time.Millisecond)
 			fmt.Println("GAME OVER! ")

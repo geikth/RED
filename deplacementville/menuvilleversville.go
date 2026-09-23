@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func menuvilleversville() {
+func Menuvilleversville() {
 	const o = "o"
 	const n = "n"
 	var saisie string
@@ -16,7 +16,7 @@ func menuvilleversville() {
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
-			menuvilleversville()
+			Menuvilleversville()
 			return
 		}
 		if saisie == o {

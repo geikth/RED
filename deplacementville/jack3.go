@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func jack3() {
+func Jack3() {
 	const m = "m"
 	var saisie string
 	fmt.Println("bonjours apprenti voyageur!")
@@ -25,13 +25,13 @@ func jack3() {
 		fmt.Scanln(&saisie)
 
 		if saisie == "m" {
-			menuvilleversville()
+			Menuvilleversville()
 			return
 		}
 		if saisie == o {
 			fmt.Println("merci tu vas sauver la ville et tout ses habitants")
 			fmt.Println("je te donnerais t'as récompense une fois le ver géant battu")
-			ville1()
+			Ville1()
 			return
 		}
 		if saisie == n {

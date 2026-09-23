@@ -5,7 +5,7 @@ import (
 	"math/rand"
 )
 
-func marchand() {
+func Marchand() {
 	type Item struct {
 		Nom  string
 		Prix int
